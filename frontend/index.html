@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Resource Allocation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Project Resource Allocation System</h1>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('employees', event)">Employees</button>
+            <button class="tab-button" onclick="openTab('projects', event)">Projects</button>
+            <button class="tab-button" onclick="openTab('allocations', event)">Allocations</button>
+        </div>
+
+        <div id="employees" class="tab-content active">
+            <div class="form-section">
+                <h2>Add New Employee</h2>
+                <div id="employee-message" class="message"></div>
+                <form id="employee-form">
+                    <div class="form-group">
+                        <label for="employee_name">Employee Name</label>
+                        <input type="text" id="employee_name" name="employee_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="skilled_language">Skilled Language</label>
+                        <input type="text" id="skilled_language" name="skilled_language" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="available_hrs">Available Hours</label>
+                        <input type="number" id="available_hrs" name="available_hrs" min="0" required>
+                    </div>
+                    <button type="submit" class="btn">Add Employee</button>
+                    <button type="button" class="btn btn-secondary" onclick="loadEmployees()">Refresh List</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h2>All Employees</h2>
+                <div id="employees-list"></div>
+            </div>
+        </div>
+
+        <div id="projects" class="tab-content">
+            <div class="form-section">
+                <h2>Add New Project</h2>
+                <div id="project-message" class="message"></div>
+                <form id="project-form">
+                    <div class="form-group">
+                        <label for="project_name">Project Name</label>
+                        <input type="text" id="project_name" name="project_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project_duration">Project Duration (hours)</label>
+                        <input type="number" id="project_duration" name="project_duration" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project_skill_required">Skills Required</label>
+                        <input type="text" id="project_skill_required" name="project_skill_required" required>
+                    </div>
+                    <button type="submit" class="btn">Add Project</button>
+                    <button type="button" class="btn btn-secondary" onclick="loadProjects()">Refresh List</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h2>All Projects</h2>
+                <div id="projects-list"></div>
+            </div>
+        </div>
+
+        <div id="allocations" class="tab-content">
+            <div class="form-section">
+                <h2>Create New Allocation</h2>
+                <div id="allocation-message" class="message"></div>
+                <form id="allocation-form">
+                    <div class="form-group">
+                        <label for="allocation_employee_id">Employee</label>
+                        <select id="allocation_employee_id" name="employee_id" required>
+                            <option value="">Select Employee</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="allocation_project_id">Project</label>
+                        <select id="allocation_project_id" name="project_id" required>
+                            <option value="">Select Project</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="allocation_hours">Allocation Hours</label>
+                        <input type="number" id="allocation_hours" name="allocation_hours" min="1" max="100" required>
+                    </div>
+                    <button type="submit" class="btn">Create Allocation</button>
+                    <button type="button" class="btn btn-secondary" onclick="loadAllocations()">Refresh List</button>
+                </form>
+            </div>
+
+            <div class="form-section">
+                <h2>All Allocations</h2>
+                <div id="allocations-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

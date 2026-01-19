@@ -22,7 +22,3 @@ class AllocationDB(base):
     project_id=Column(Integer,ForeignKey(ProjectDB.project_id))
     employee_id=Column(Integer,ForeignKey(EmployeeDB.employee_id))
     allocation_hours=Column(Integer,default=0)
-
-
-
-
